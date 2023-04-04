@@ -133,10 +133,11 @@
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnStart.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnStart.Location = new System.Drawing.Point(12, 108);
+            this.btnStart.Location = new System.Drawing.Point(338, 113);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(92, 31);
             this.btnStart.TabIndex = 10;
+            this.btnStart.TabStop = false;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
@@ -149,12 +150,14 @@
             this.btnStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStop.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnStop.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnStop.Location = new System.Drawing.Point(229, 108);
+            this.btnStop.Location = new System.Drawing.Point(274, 4);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(92, 31);
             this.btnStop.TabIndex = 11;
+            this.btnStop.TabStop = false;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = false;
+            this.btnStop.Visible = false;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // btnResume
@@ -165,12 +168,14 @@
             this.btnResume.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResume.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnResume.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnResume.Location = new System.Drawing.Point(122, 108);
+            this.btnResume.Location = new System.Drawing.Point(338, 113);
             this.btnResume.Name = "btnResume";
             this.btnResume.Size = new System.Drawing.Size(92, 31);
             this.btnResume.TabIndex = 12;
-            this.btnResume.Text = "Resume";
+            this.btnResume.TabStop = false;
+            this.btnResume.Text = "Pause";
             this.btnResume.UseVisualStyleBackColor = false;
+            this.btnResume.Visible = false;
             this.btnResume.Click += new System.EventHandler(this.btnResume_Click);
             // 
             // btnReset
@@ -180,12 +185,13 @@
             this.btnReset.FlatAppearance.BorderSize = 2;
             this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReset.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnReset.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnReset.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnReset.Location = new System.Drawing.Point(338, 108);
+            this.btnReset.Location = new System.Drawing.Point(79, 6);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(92, 31);
+            this.btnReset.Size = new System.Drawing.Size(58, 26);
             this.btnReset.TabIndex = 13;
+            this.btnReset.TabStop = false;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -200,6 +206,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(34, 32);
             this.btnClose.TabIndex = 14;
+            this.btnClose.TabStop = false;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -214,6 +221,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(34, 32);
             this.button5.TabIndex = 15;
+            this.button5.TabStop = false;
             this.button5.Text = "_";
             this.button5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button5.UseVisualStyleBackColor = false;
@@ -241,6 +249,7 @@
             this.btnSet.Name = "btnSet";
             this.btnSet.Size = new System.Drawing.Size(61, 26);
             this.btnSet.TabIndex = 16;
+            this.btnSet.TabStop = false;
             this.btnSet.Text = "Set";
             this.btnSet.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSet.UseVisualStyleBackColor = false;
@@ -257,7 +266,6 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.btnResume);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lblS);
@@ -267,6 +275,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblD);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnResume);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CVSCrono";
             this.ShowInTaskbar = false;
@@ -275,6 +284,7 @@
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CVSCrono_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.Resize += new System.EventHandler(this.CVSCrono_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();

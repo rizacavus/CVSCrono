@@ -26,6 +26,22 @@ namespace WinSayac
         }
 
         public DateTime EndTime { get; set; }
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void Form1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
 
         public CVSCrono()
         {
@@ -41,6 +57,7 @@ namespace WinSayac
         {
             StartTime = DateTime.Now;
             tmr.Start();
+            butonSet();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -54,10 +71,29 @@ namespace WinSayac
                                       workingArea.Bottom - Size.Height);
         }
 
+        public void butonSet()
+        {
+            if (tmr.Enabled)
+            {
+                btnStart.Visible = false;
+                //btnStop.Visible = true;
+                btnResume.Visible = true;
+                btnReset.Visible = false;
+            }
+            else
+            {
+                btnStart.Visible = true;
+                btnStop.Visible = false;
+                btnResume.Visible = false;
+                btnReset.Visible = true;
+            }
+        }
+
         private void btnReset_Click(object sender, EventArgs e)
         {
             tmr.Stop();
             UsedTime = TimeSpan.Parse("00:00:00");
+            butonSet();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -73,11 +109,13 @@ namespace WinSayac
         private void btnResume_Click(object sender, EventArgs e)
         {
             tmr.Stop();
+            butonSet();
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
             tmr.Stop();
+            butonSet();
         }
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
