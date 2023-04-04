@@ -1,4 +1,5 @@
 using CVSCronoPro;
+using System.Windows.Forms;
 
 namespace WinSayac
 {
@@ -97,6 +98,15 @@ namespace WinSayac
         private void CVSCrono_FormClosing(object sender, FormClosingEventArgs e)
         {
             notifyIcon1.Visible = false;
+        }
+
+        private void CVSCrono_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                Hide();
+                notifyIcon1.Visible = true;
+            }
         }
     }
 }

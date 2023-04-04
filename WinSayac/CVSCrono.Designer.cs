@@ -275,6 +275,7 @@
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CVSCrono_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.CVSCrono_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 
