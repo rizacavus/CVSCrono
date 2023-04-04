@@ -146,5 +146,10 @@ namespace WinSayac
                 notifyIcon1.Visible = true;
             }
         }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            this.Opacity = Convert.ToDouble (trackBar1.Value) / 100;
+        }
     }
 }

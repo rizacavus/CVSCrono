@@ -46,6 +46,8 @@
             this.tmr = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.btnSet = new System.Windows.Forms.Button();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblD
@@ -255,6 +257,21 @@
             this.btnSet.UseVisualStyleBackColor = false;
             this.btnSet.Click += new System.EventHandler(this.btnSet_Click);
             // 
+            // trackBar1
+            // 
+            this.trackBar1.LargeChange = 20;
+            this.trackBar1.Location = new System.Drawing.Point(12, 113);
+            this.trackBar1.Maximum = 100;
+            this.trackBar1.Minimum = 10;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(202, 45);
+            this.trackBar1.SmallChange = 10;
+            this.trackBar1.TabIndex = 18;
+            this.trackBar1.TabStop = false;
+            this.trackBar1.TickFrequency = 10;
+            this.trackBar1.Value = 80;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
             // CVSCrono
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -262,6 +279,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(449, 156);
             this.ControlBox = false;
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.btnSet);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.btnClose);
@@ -278,6 +296,7 @@
             this.Controls.Add(this.btnResume);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CVSCrono";
+            this.Opacity = 0.6D;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CVSSayaç";
@@ -286,6 +305,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.Resize += new System.EventHandler(this.CVSCrono_Resize);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,5 +329,6 @@
         private System.Windows.Forms.Timer tmr;
         private NotifyIcon notifyIcon1;
         private Button btnSet;
+        private TrackBar trackBar1;
     }
 }
