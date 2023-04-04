@@ -45,6 +45,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.tmr = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.btnSet = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblD
@@ -226,9 +227,24 @@
             // notifyIcon1
             // 
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Text = "CVSCrono";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // btnSet
+            // 
+            this.btnSet.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSet.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSet.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSet.Location = new System.Drawing.Point(12, 6);
+            this.btnSet.Name = "btnSet";
+            this.btnSet.Size = new System.Drawing.Size(61, 26);
+            this.btnSet.TabIndex = 16;
+            this.btnSet.Text = "Set";
+            this.btnSet.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSet.UseVisualStyleBackColor = false;
+            this.btnSet.Click += new System.EventHandler(this.btnSet_Click);
             // 
             // CVSCrono
             // 
@@ -237,6 +253,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(449, 156);
             this.ControlBox = false;
+            this.Controls.Add(this.btnSet);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnReset);
@@ -256,6 +273,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CVSSayaç";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CVSCrono_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -279,5 +297,6 @@
         private Button button5;
         private System.Windows.Forms.Timer tmr;
         private NotifyIcon notifyIcon1;
+        private Button btnSet;
     }
 }

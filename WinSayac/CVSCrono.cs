@@ -1,7 +1,10 @@
+using CVSCronoPro;
+
 namespace WinSayac
 {
     public partial class CVSCrono : Form
     {
+
         private TimeSpan usedTime;
 
         public DateTime StartTime { get; set; }
@@ -80,6 +83,20 @@ namespace WinSayac
         {
             Show();
             this.WindowState = FormWindowState.Normal;
+        }
+
+        private void btnSet_Click(object sender, EventArgs e)
+        {
+            var f = new frmSetTime(UsedTime);
+            f.Top -= this.Height;
+            f.ShowDialog();
+            if (f.IsOk)
+                UsedTime = f.myTimeSpan;
+        }
+
+        private void CVSCrono_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            notifyIcon1.Visible = false;
         }
     }
 }
